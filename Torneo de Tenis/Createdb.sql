@@ -36,7 +36,7 @@ CREATE TABLE Arbitros(
 
 CREATE TABLE Partidos(
 	partidoId INT NOT NULL AUTO_INCREMENT,
-	fecha DATE NOT NULL,
+	fechaPartido DATE NOT NULL,
 	ronda VARCHAR(100) NOT NULL,
 	duracion INT NOT NULL,
 	torneo VARCHAR(100) NOT NULL,
@@ -76,7 +76,7 @@ BEGIN
     SELECT COUNT(*) INTO partidos_del_dia
     FROM Partidos
     WHERE arbitroId = new.arbitroId 
-      AND fecha = new.fecha;
+      AND fechaPartido = new.fechaPartido;
 
     IF partidos_del_dia >= 3 THEN
         SIGNAL SQLSTATE '45000'
